@@ -45,3 +45,13 @@ class FractionCalc:
         self.fraction = [self.fraction[0] - other.fraction[0],
                          self.fraction[1]]
         return self.beautiful_return()
+
+    def __mul__(self, other):
+        self.fraction = [self.fraction[0] * other.fraction[0],
+                         self.fraction[1] * other.fraction[1]]
+        return self.beautiful_return()
+
+    def __truediv__(self, other):
+        self.fraction = [self.fraction[0] * other.fraction[1],
+                         self.fraction[1] * other.fraction[0]]
+        return self.beautiful_return()
