@@ -3,13 +3,18 @@ import GCDandLCM as GL
 
 class FractionCalc:
     def __init__(self, i1, i2, i3):
-        def InFraction(i1f, i2f, i3f):
+        def PreparingFraction(i1f, i2f, i3f):
             if i1f:
-                i2f += i1f * i3f
+                if not i2f + i3f:
+                    i2f = i1f
+                    i3f = 1
+                else:
+                    i2f += i1f * i3f
+
             return [i2f, i3f]
 
-        self.fraction = InFraction(i1, i2, i3)
-        self.DivisionResult = self.fraction[0] / self.fraction[1]
+        self.fraction = PreparingFraction(i1, i2, i3)
+        self.DivisionResult = None
 
     def beautiful_return(self):
 
